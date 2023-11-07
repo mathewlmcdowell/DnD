@@ -8,8 +8,8 @@ export default function Navbar() {
 
     return(
         <>
-            <nav className="navbar navbar-expand navbar-dark bg-dark">
-                <div className="container">
+            <nav className="navbar navbar-expand-md navbar-dark bg-black sticky-top">
+                <div className="container-fluid">
                     <Link to='/' className="navbar-brand">Initiative</Link>
                     <ul className="navbar-nav">
                         <li className="nav-item">

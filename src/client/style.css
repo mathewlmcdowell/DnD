@@ -15,4 +15,11 @@
   width: 250px;
 }
 
-/* Add more styling for other elements if needed */
+.outline {
+  text-shadow:
+    -1px -1px 0 #00000079,
+    1px -1px 0 #00000079,
+    -1px 1px 0 #00000079,
+    1px 1px 0 #00000079;  
+  color: whitesmoke;
+  }
