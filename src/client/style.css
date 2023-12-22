@@ -20,6 +20,7 @@
     -1px -1px 0 #00000079,
     1px -1px 0 #00000079,
     -1px 1px 0 #00000079,
-    1px 1px 0 #00000079;  
-  color: whitesmoke;
+    1px 1px 0 #00000079 !important;  
+  color: whitesmoke !important;
   }
+

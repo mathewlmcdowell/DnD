@@ -1,11 +1,10 @@
 import "bootstrap/dist/css/bootstrap.min.css";
 
-
-export default function Home() {
+export default function CSheet() {
 
     return(
         <>
-			<div className="position-relative">
+        	<div className="position-relative">
                 <div className="card text-white bg-dark text-center align-items-start">
                     <div className="container row row-gap-2">
                         <div className="row gap-0 column-gap-3 row-gap-2">

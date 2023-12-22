@@ -3,6 +3,7 @@ import Routing from './Routing';
 import "bootstrap/dist/css/bootstrap.min.css";
 import "bootstrap/dist/js/bootstrap.bundle.min";
 import Navbar from './components/Navbar';
+import './style.css'
 
 
 export default function App() {
@@ -12,7 +13,9 @@ export default function App() {
   return (
     <>
         <Navbar />
+        <div className='mt-2'>
         <Routing />
+        </div>
     </>
   );
 }

@@ -1,6 +1,6 @@
 import { Link } from "react-router-dom";
 import "bootstrap/dist/css/bootstrap.min.css";
-
+import "bootstrap/dist/js/bootstrap.min.js";
 
 
 export default function Navbar() {
@@ -8,7 +8,7 @@ export default function Navbar() {
 
     return(
         <>
-            <nav className="navbar navbar-expand-md navbar-dark bg-black sticky-top">
+            <nav className="navbar navbar-expand-md navbar-dark bg-dark">
                 <div className="container-fluid">
                     <Link to='/' className="navbar-brand">Initiative</Link>
                     <ul className="navbar-nav">

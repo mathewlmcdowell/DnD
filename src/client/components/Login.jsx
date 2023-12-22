@@ -1,4 +1,5 @@
 import React, { useState } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
 
 const Login = () => {
   const [email, setEmail] = useState('');
@@ -43,33 +44,39 @@ const Login = () => {
   };
 
   return (
-    <div>
-      <h2>Login</h2>
-      <form onSubmit={handleSubmit}>
-        <div>
-          <label htmlFor='email'>Email:</label>
-          <input
-            type='email'
-            id='email'
-            value={email}
-            onChange={handleEmailChange}
-            required
-          />
+    <>
+    <div className='position-relative'>
+      <div className='card text-white bg-dark' style={{ width: '50vw', height: '75vh' }}>
+        <div className='card-body .outline'>
+          <h2>Login</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor='email'>Email:</label>
+              <input
+                type='email'
+                id='email'
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor='password'>Password:</label>
+              <input
+                type='password'
+                id='password'
+                value={password}
+                onChange={handlePasswordChange}
+                required
+              />
+            </div>
+            <button type='submit'>Login</button>
+          </form>
+          <p>{message}</p>
         </div>
-        <div>
-          <label htmlFor='password'>Password:</label>
-          <input
-            type='password'
-            id='password'
-            value={password}
-            onChange={handlePasswordChange}
-            required
-          />
-        </div>
-        <button type='submit'>Login</button>
-      </form>
-      <p>{message}</p>
     </div>
+  </div>
+  </>
   );
 };
 
