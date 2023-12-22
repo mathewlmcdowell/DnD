@@ -18,6 +18,9 @@ export default function Navbar() {
                         <li className="nav-item">
                             <Link to='/login' className="nav-link">Login</Link>
                         </li>
+                        <li className="nav-item">
+                            <Link to='/CharSheet' className="nav-link">Character</Link>
+                        </li>
                     </ul>
                 </div>
             </nav>

@@ -2,6 +2,7 @@ import { Routes, Route, Link } from "react-router-dom"
 import Login from "./components/Login"
 import Home from "./components/Home"
 import './style.css'
+import CSheet from "./components/CSheet"
 
 export default function Routing() {
 
@@ -12,6 +13,7 @@ export default function Routing() {
       <Routes>
         <Route path ='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/CharSheet' element={<CSheet />} />
       </Routes>
 
     </div>
