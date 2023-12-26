@@ -30,6 +30,17 @@ const users = [
   // Add more user objects as needed
 ];  
 
+const gameSessions = [
+  {
+    owner: 'john@example.com',
+    gametoken1: 'placeholderForUniqueGames1.0',
+  },
+  {
+    owner: 'emily@example.com',
+    gametoken1: 'placeholderForUniqueGames1.1',
+  },
+];
+
 const dropTables = async () => {
     try {
         await db.query(`
@@ -49,6 +60,11 @@ const createTables = async () => {
             name VARCHAR(255) DEFAULT 'name',
             email VARCHAR(255) UNIQUE NOT NULL,
             password VARCHAR(255) NOT NULL
+        )`;
+        `CREATE TABLE gamesessions(
+            id SERIAL PRIMARY KEY,
+            owner VARCHAR(255) UNIQUE NOT NULL,
+            gametoken1 VARCHAR(255) UNIQUE NOT NULL
         )`)
     }
     catch(err) {
@@ -63,10 +79,22 @@ const insertUsers = async () => {
     }
     console.log('Seed data inserted successfully.');
   } catch (error) {
-    console.error('Error inserting seed data:', error);
+    console.error('Error inserting seed data: Users: ', error);
   }
 };
 
+// help
+const insertGameSessions = async () => {
+  try{
+    for (const gameSessions of gameSessions) {
+      await createGameSession({owner: user.email, gametoken1: session.token});
+    }
+  } catch (error) {
+    console.error('Error inserting seed data: Game Sessions: ', error);
+}
+//me
+
+  
 const seedDatabse = async () => {
     try {
         db.connect();
