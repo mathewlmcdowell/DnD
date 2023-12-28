@@ -1,96 +1,98 @@
-import { useContext, useState } from "react";
+import React, { useState, useContext } from 'react';
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useNavigate } from 'react-router-dom';
-import { API_URL } from "../config";
-import { AppContext } from "../appcontextprovider";
+
 
 const Login = () => {
-    const { setIslogin, setUser } = useContext(AppContext);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [isLoading, setIsLoading] = useState(false);
+  const [user, setUser] = useState(null);
 
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [isLoading, setIsLoading] = useState(false);
+  const navigate = useNavigate();
 
-    const navigate = useNavigate();
+  const handleEmailChange = (e) => {
+    setEmail(e.target.value);
+  };
+
+  const handlePasswordChange = (e) => { 
+    setPassword(e.target.value);
+  };
 
 
-    const handleLogin = async (e) => {
-        e.preventDefault();
 
+  const handleSubmit = async (e) => {
+    e.preventDefault();
+
+
+        
         const data = JSON.stringify({
-            email: email,
-            password: password,
+          email: email,
+          password: password,
         })
-
         const h = new Headers();
         h.append('content-type', 'application/json');
 
         setIsLoading(true);
 
-        const response = await fetch(API_URL + '/login', {
-            headers: h,
-            method: 'POST',
-            body: data,
-        })
-
+        const response = await fetch('http://localhost:3000/api/users/login', {
+          headers: h,
+          method: 'POST',
+          body: data,
+        });
         const responseData = await response.json();
-
         setIsLoading(false);
-
         if (responseData.error) {
-            alert(responseData.errorMessage);
+          alert(responseData.errorMessage);
         } else {
-            setEmail('');
-            setPassword('');
+          setEmail('');
+          setPassword('');
 
-            const token = responseData.token;
-            sessionStorage.setItem('shoppingToken', token);
+          const token = responseData.token;
+          console.log('Token: ', token);
+          sessionStorage.setItem('initiativeToken', token);
+          setIsLoading(true);
+          setUser(responseData.user);
+          console.log('User: ', user);
+          navigate('/');
+          }
+  }
 
-            setIslogin(true);
-            setUser(responseData.user);
 
-            alert('Login successfull');
-            navigate('/dashboard');
-        }
-
-
-    }
-
-    return (
-      <>
-      <div className='position-relative'>
-        <div className='card text-white bg-dark' style={{ width: '50vw', height: '75vh' }}>
-          <div className='card-body .outline'>
-            <h2>Login</h2>
-            <form onSubmit={handleSubmit}>
-              <div>
-                <label htmlFor='email'>Email:</label>
-                <input
-                  type='email'
-                  id='email'
-                  value={email}
-                  onChange={handleEmailChange}
-                  required
-                />
-              </div>
-              <div>
-                <label htmlFor='password'>Password:</label>
-                <input
-                  type='password'
-                  id='password'
-                  value={password}
-                  onChange={handlePasswordChange}
-                  required
-                />
-              </div>
-              <button type='submit'>Login</button>
-            </form>
-            <p>{message}</p>
-          </div>
-      </div>
+  return (
+    <>
+    <div className='position-relative'>
+      <div className='card text-white bg-dark text-center align-items-start' style={{ width: '50vw', height: '75vh' }}>
+        <div className='card-body outline'>
+          <h2>Login</h2>
+          <form onSubmit={handleSubmit}>
+            <div>
+              <label htmlFor='email'>Email:</label>
+              <input
+                type='email'
+                id='email'
+                value={email}
+                onChange={handleEmailChange}
+                required
+              />
+            </div>
+            <div>
+              <label htmlFor='password'>Password:</label>
+              <input
+                type='password'
+                id='password'
+                value={password}
+                onChange={handlePasswordChange}
+                required
+              />
+            </div>
+            <button type='submit' disabled={isLoading} >{isLoading ? 'loggin in...' : 'LOGIN'}</button>
+          </form>
+        </div>
     </div>
-    </>
-    );
-  };
-  
-  export default Login;
-  
+  </div>
+  </>
+  );
+};
+
+export default Login;

@@ -1,10 +1,21 @@
 import { Routes, Route, Link } from "react-router-dom"
 import Login from "./components/Login"
 import Home from "./components/Home"
-import './style.css'
 import CSheet from "./components/CSheet"
+import './style.css'
+import { useState } from 'react'
+
 
 export default function Routing() {
+
+  // let userObj = null;
+  // const token = sessionStorage.getItem('initiativeToken');
+  // if (token) {
+  //     userObj = JSON.parse(atob(sessionStorage.getItem('initiativeToken').split('.')[1]));
+  // }
+
+  const [user, setUser] = useState(null);
+
 
     return(
   <>

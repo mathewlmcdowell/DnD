@@ -3,6 +3,7 @@ const usersRouter = express.Router();
 
 const {
     createUser,
+    getAllUsers,
     getUser,
     getUserByEmail
 } = require('../db');
@@ -37,7 +38,9 @@ usersRouter.post('/login', async(req, res, next) => {
                 email
             }, process.env.JWT_SECRET, {
                 expiresIn: '1w'
-            });
+            }); 
+
+            console.log('pop');
 
             res.send({
                 message: 'Login successful!',

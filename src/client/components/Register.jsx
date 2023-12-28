@@ -1,4 +1,4 @@
-import { API_URL } from "../config";
+import "bootstrap/dist/css/bootstrap.min.css";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 
@@ -26,7 +26,7 @@ const Register = () => {
 
         setIsLoading(true);
 
-        const response = await fetch(API_URL + '/register', {
+        const response = await fetch('http://localhost:3000/api/users/register', {
             headers: h,
             method: 'POST',
             body: data,
@@ -42,7 +42,6 @@ const Register = () => {
             setName('');
             setEmail('');
             setPassword('');
-            alert('registeration successfull');
             navigate('/login');
 
         }
