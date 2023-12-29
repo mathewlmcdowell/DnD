@@ -5,6 +5,7 @@ import "bootstrap/dist/js/bootstrap.bundle.min";
 import Navbar from './components/Navbar';
 import './style.css';
 import Fetch from './components/Fetch';
+import Footer from './components/Footer';
 
 
 
@@ -23,10 +24,15 @@ export default function App() {
 
   return (
     <>
+      <div className='outline'>
         <Navbar />
         <div className='mt-2'>
         <Routing />
         </div>
+        <div className='mt-2'>
+        <Footer />
+        </div>
+      </div>
     </>
   );
 }

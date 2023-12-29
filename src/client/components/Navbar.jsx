@@ -13,7 +13,7 @@ export default function Navbar() {
                     <Link to='/' className="navbar-brand">Initiative</Link>
                     <ul className="navbar-nav">
                         <li className="nav-item">
-                            <Link to='/' className="nav-link active" aria-current="page">Home</Link>
+                            <Link to='/' className="nav-link">Home</Link>
                         </li>
                         <li className="nav-item">
                             <Link to='/login' className="nav-link">Login</Link>

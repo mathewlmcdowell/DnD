@@ -14,13 +14,13 @@ export default function Routing() {
   //     userObj = JSON.parse(atob(sessionStorage.getItem('initiativeToken').split('.')[1]));
   // }
 
+  const [isLogin, setIslogin] = useState(false);
   const [user, setUser] = useState(null);
-
 
     return(
   <>
 
-    <div className="bg-secondary text-white container" style={{ width: '75rem', height: '100vh' }}>
+    <div className="bg-dark text-white container" style={{ width: '90%', height: '100vh'}}>
       <Routes>
         <Route path ='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
