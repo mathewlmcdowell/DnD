@@ -5,7 +5,7 @@ export default function Home() {
 
     return(
         <>
-			<div className="position-relative">
+			<div className="position-relative my-5">
                 <div className="card text-white bg-dark text-center align-items-start">
                     <div className="container">
                         <h3>D&D Initiative</h3>

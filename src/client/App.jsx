@@ -29,7 +29,7 @@ export default function App() {
         <div className='mt-2'>
         <Routing />
         </div>
-        <div className='mt-2'>
+        <div className='mt-4'>
         <Footer />
         </div>
       </div>

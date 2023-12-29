@@ -8,11 +8,13 @@ export default function Footer() {
 
     return(
         <>
-            <nav className="navbar navbar-expand-md navbar-dark bg-dark">
+        <div className="outline">
+            <nav className="navbar navbar-expand-md navbar-dark">
                 <div className="container-fluid">
                     <Link to='/' className="navbar-brand">D&D Initiative</Link>
                 </div>
             </nav>
+        </div>
         </>
     )
 }
