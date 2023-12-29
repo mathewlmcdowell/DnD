@@ -4,6 +4,7 @@ import Home from "./components/Home"
 import CSheet from "./components/CSheet"
 import './style.css'
 import { useState } from 'react'
+import Register from "./components/Register"
 
 
 export default function Routing() {
@@ -24,6 +25,7 @@ export default function Routing() {
       <Routes>
         <Route path ='/' element={<Home />} />
         <Route path='/login' element={<Login />} />
+        <Route path='/register' element={<Register />} />
         <Route path='/CharSheet' element={<CSheet />} />
       </Routes>
 

@@ -9,7 +9,6 @@ apiRouter.use(volleyball)
 apiRouter.use(async (req, res, next) => {
   const auth = req.header('Authorization');
   const prefix = 'Bearer ';
-  console.log(auth);
 
   if (!auth) { 
     console.log('index.js: !auth, failure');

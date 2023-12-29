@@ -16,7 +16,10 @@ export default function Navbar() {
                             <Link to='/' className="nav-link">Home</Link>
                         </li>
                         <li className="nav-item">
-                            <Link to='/login' className="nav-link">Login</Link>
+                            <Link to='/login' className="nav-link">Sign In</Link>
+                        </li>
+                        <li className="nav-item">
+                            <Link to='/register' className="nav-link">Sign Up</Link>
                         </li>
                         <li className="nav-item">
                             <Link to='/CharSheet' className="nav-link">Character</Link>

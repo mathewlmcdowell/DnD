@@ -51,32 +51,30 @@ const Register = () => {
 
     return (
         <>
-            <Navbar />
-            <div className="container my-5">
+            <div className="container my-5 ">
                 <div className="row justify-content-center align-items-center" style={{ height: '90vh' }}>
                     <div className="col-6">
-                        <div className="card card-primary">
-                            <div className="card-header">
-                                <h2 className="text-center">Register</h2>
+                        <div className="card card-primary bg-dark-subtle border border-dark-subtle">
+                            <div className="card-header bg-dark border border-dark-subtle">
+                                <h2 className="text-center text-white">Register</h2>
                             </div>
                             <div className="card-body">
                                 <form onSubmit={handleRegister}>
                                     <div className="form-group">
-                                        <label htmlFor="">Name</label>
+                                        <label htmlFor="" className="text-white">Name</label>
                                         <input type="text" value={name} className="form-control" onChange={e => setName(e.currentTarget.value)} required />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="">Email</label>
+                                        <label htmlFor="" className="text-white">Email</label>
                                         <input type="email" value={email} className="form-control" onChange={e => setEmail(e.currentTarget.value)} required />
                                     </div>
                                     <div className="form-group">
-                                        <label htmlFor="">Password</label>
+                                        <label htmlFor="" className="text-white">Password</label>
                                         <input type="password" value={password} className="form-control" onChange={e => setPassword(e.currentTarget.value)} required />
                                     </div>
                                     <div className="form-group my-4">
-                                        <button type="submit" className="btn btn-primary" disabled={isLoading} >{isLoading ? 'Registering...' : 'REGISTER'}</button>
+                                        <button type="submit" className="btn btn-outline-secondary btn-light" disabled={isLoading} >{isLoading ? 'Registering...' : 'REGISTER'}</button>
                                     </div>
-
                                 </form>
                             </div>
                         </div>

@@ -11,16 +11,6 @@ const Login = () => {
 
   const navigate = useNavigate();
 
-  const handleEmailChange = (e) => {
-    setEmail(e.target.value);
-  };
-
-  const handlePasswordChange = (e) => { 
-    setPassword(e.target.value);
-  };
-
-
-
   const handleSubmit = async (e) => {
     e.preventDefault();
 
@@ -61,38 +51,35 @@ const Login = () => {
 
   return (
     <>
-    <div className='position-relative'>
-      <div className='card text-white bg-dark text-center align-items-start' style={{ width: '50vw', height: '75vh' }}>
-        <div className='card-body outline'>
-          <h2>Login</h2>
-          <form onSubmit={handleSubmit}>
-            <div>
-              <label htmlFor='email'>Email:</label>
-              <input
-                type='email'
-                id='email'
-                value={email}
-                onChange={handleEmailChange}
-                required
-              />
+    <div className="container my-5">
+        <div className="row justify-content-center align-items-center" style={{ height: '90vh' }}>
+            <div className="col-6">
+                <div className="card card-primary bg-dark-subtle border border-dark-subtle">
+                    <div className="card-header bg-dark border border-dark-subtle">
+                        <h2 className="text-center text-white">Login</h2>
+                    </div>
+                    <div className="card-body">
+                        <form onSubmit={handleSubmit}>
+                            <div className="form-group">
+                                <label htmlFor="" className='text-white'>Email</label>
+                                <input type="email" value={email} className="form-control" onChange={e => setEmail(e.currentTarget.value)} required />
+                            </div>
+                            <div className="form-group">
+                                <label htmlFor="" className='text-white'>Password</label>
+                                <input type="password" value={password} className="form-control" onChange={e => setPassword(e.currentTarget.value)} required />
+                            </div>
+                            <div className="form-group my-4">
+                                <button type="submit" className="btn btn-outline-secondary btn-light" disabled={isLoading} >{isLoading ? 'loggin in...' : 'LOGIN'}</button>
+                            </div>
+
+                        </form>
+                    </div>
+                </div>
             </div>
-            <div>
-              <label htmlFor='password'>Password:</label>
-              <input
-                type='password'
-                id='password'
-                value={password}
-                onChange={handlePasswordChange}
-                required
-              />
-            </div>
-            <button type='submit' disabled={isLoading} >{isLoading ? 'loggin in...' : 'LOGIN'}</button>
-          </form>
         </div>
     </div>
-  </div>
-  </>
-  );
-};
+</>
+)
+}
 
 export default Login;
